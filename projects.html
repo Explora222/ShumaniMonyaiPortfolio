@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Shumani Monyai</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>My Projects</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active-link">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="theme-toggle">🌗</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projects-section">
+      <div class="project-card" onclick="openModal('modal1')">
+        <h3>📒 Contact Book</h3>
+        <p>Contact Manager App using external API.</p>
+      </div>
+
+      <div class="project-card" onclick="openModal('modal2')">
+        <h3>📈 Forex Trading Bot</h3>
+        <p>Real-time bot integrated with MetaTrader 5.</p>
+      </div>
+
+      <div class="project-card" onclick="openModal('modal3')">
+        <h3>🤖 AI Chatbot</h3>
+        <p>Python-based conversational AI project.</p>
+      </div>
+
+      <div class="project-card" onclick="openModal('modal4')">
+        <h3>📅 30-Day Hustle Tracker</h3>
+        <p>Daily productivity & accountability tracker.</p>
+      </div>
+
+      <div class="project-card" onclick="openModal('modal5')">
+        <h3>🎉 Brunch On Sundays Website</h3>
+        <p>Event site with theme toggle, RSVP & DJ lineup.</p>
+      </div>
+
+      <div class="project-card" onclick="openModal('modal6')">
+        <h3>🌐 Portfolio Website</h3>
+        <p>This personal portfolio you’re browsing now!</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Shumani Monyai. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
