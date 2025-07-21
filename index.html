@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,18 +12,27 @@
     .headline {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
-      font-size: 1.1rem;
-      color: #7b61ff; /* nice purple color to pop */
-      letter-spacing: 0.12em;
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+      color: #7b61ff;
+      letter-spacing: 0.08em;
       margin-top: 4px;
       margin-bottom: 16px;
       text-align: center;
+      line-height: 1.4;
+      padding: 0 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .headline {
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Shumani Monyai</h1>
+    <h1 style="text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 0;">Shumani Monyai</h1>
     <div class="headline">IT Pro • Full Stack Dev • Sales Strategist</div>
     <nav>
       <ul class="nav-links">
