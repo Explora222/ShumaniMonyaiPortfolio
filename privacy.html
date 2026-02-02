@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Legal & Privacy Policy — Portfolio website of Frontend Developer Shumani Monyai." />
+  <meta name="author" content="Shumani Monyai" />
+
+  <title>Legal & Privacy | Shumani Monyai</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ---------- BASE RESET ---------- */
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0b0b0b;
+      color:#fff;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    /* ---------- LIGHT MODE ---------- */
+    body.light{background:#ffffff;color:#111}
+    body.light header{background:#ffffff;border-color:#e6e6e6}
+    body.light .nav ul li a{color:#333}
+    body.light .nav ul li a:hover{color:#0044ff}
+    body.light .badge{background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.08);color:#0044ff;}
+    body.light .text p{color:#555}
+    body.light .section h3{color:#0044ff}
+    body.light .policy-block{background:#fafafa;border:1px solid rgba(0,0,0,.08);}
+    body.light footer{border-top:1px solid rgba(0,0,0,.1);color:#555}
+
+    /* ---------- HEADER ---------- */
+    header{
+      width:100%;
+      position:fixed;
+      top:0;left:0;
+      z-index:20;
+      background:#0b0b0b;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 20px;
+    }
+
+    .logo{display:flex;align-items:center;gap:10px;font-size:1.4rem;font-weight:700}
+    .logo img{height:42px;width:auto}
+
+    .theme-switch{
+      position:relative;
+      width:70px;height:32px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter:blur(10px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 8px;
+      cursor:pointer;
+    }
+
+    .theme-switch i{font-size:14px;color:#d4d4d4;z-index:2}
+    .theme-switch .thumb{
+      position:absolute;width:28px;height:28px;border-radius:50%;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);
+      transition:transform .25s ease;
+      left:2px;
+    }
+    .theme-switch.dark .thumb{transform:translateX(36px)}
+
+    /* ---------- HERO ---------- */
+    .page-hero{
+      max-width:1100px;
+      margin:140px auto 40px;
+      padding:0 20px;
+    }
+
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.1);
+      padding:6px 10px;
+      border-radius:20px;
+      font-size:.8rem;
+      color:#1900ff;
+      margin-bottom:10px;
+    }
+
+    .page-hero h1{font-size:2.6rem;margin-bottom:10px}
+    .page-hero p{color:#aaa;max-width:680px}
+
+    /* ---------- SECTIONS ---------- */
+    .section{
+      max-width:1100px;
+      margin:60px auto;
+      padding:0 20px;
+    }
+
+    .section h3{color:#1900ff;margin-bottom:6px}
+    .section h2{font-size:2rem;margin-bottom:16px}
+
+    .policy-block{
+      margin-top:16px;
+      background:#0f0f0f;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:18px;
+    }
+
+    .policy-block .index{
+      font-size:2.3rem;
+      font-weight:900;
+      color:#2f00ff;
+      margin-bottom:6px;
+    }
+
+    .policy-block p,
+    .policy-block ul{
+      color:#aaa;
+      margin-bottom:10px;
+      line-height:1.6;
+    }
+
+    ul{padding-left:18px}
+
+    /* ---------- FOOTER (YOUR STYLE) ---------- */
+    .site-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 20px;
+      max-width:1200px;
+      margin:60px auto 10px;
+      color:#bfbfbf;
+      font-size:.9rem;
+      gap:20px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footer-left{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .copy strong{color:#fff}
+    .social{color:#dcdcdc;font-size:1.1rem}
+    .social:hover{color:#4a7dff}
+    body.light .site-footer{background:#f7f8fc;border-top:1px solid #e2e4ef;color:#3a3a3a}
+    body.light .copy strong{color:#0f172a}
+
+
+
+    @media(max-width:700px){
+      .page-hero h1{font-size:2.2rem}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <a href="index.html"><img src="log.png" alt="Shumani Monyai Logo"></a>
+      </div>
+
+      <a href="index.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      </a>
+
+      <div class="theme-switch" id="themeToggle">
+        <i class="fa-solid fa-sun sun-icon"></i>
+        <i class="fa-solid fa-moon moon-icon"></i>
+        <span class="thumb"></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="badge">Legal — Privacy & Data</div>
+    <h1>Privacy Policy & Legal Notice</h1>
+    <p>I respect your privacy. This page explains what data is collected, how it’s used, and your rights.</p>
+  </section>
+
+  <!-- 01 -->
+  <section class="section">
+    <h3>Privacy</h3>
+    <h2>01 — Data Collection</h2>
+
+    <div class="policy-block">
+      <div class="index">01</div>
+      <p>
+        This website is a personal portfolio for <strong>Shumani Monyai</strong>.
+        I only collect the minimum information needed to keep the site functional and secure.
+      </p>
+
+      <p><strong>Contact Forms / Email</strong><br>
+        If you contact me, I may receive your name, email address and message. This information is used only to reply to you.
+      </p>
+
+      <p><strong>Security & Server Logs</strong><br>
+        Basic technical data such as IP address and browser type may be logged to detect spam or abuse.
+        This data is not used for tracking or profiling.
+      </p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="section">
+    <h3>Analytics</h3>
+    <h2>02 — Anonymous Insights</h2>
+
+    <div class="policy-block">
+      <div class="index">02</div>
+
+      <p>
+        Analytics may be used to understand general site usage. This includes:
+      </p>
+
+      <ul>
+        <li>Page visits</li>
+        <li>Device & browser type</li>
+        <li>Approximate location (non-precise)</li>
+      </ul>
+
+      <p>
+        Where possible, IP anonymisation is enabled and analytics do not personally identify you.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="section">
+    <h3>Your Rights & Copyright</h3>
+    <h2>03 — Your Choices</h2>
+
+    <div class="policy-block">
+      <div class="index">03</div>
+
+      <p>You may request:</p>
+
+      <ul>
+        <li>Access to any personal data you submitted</li>
+        <li>Correction or deletion of your data</li>
+        <li>Opt-out of non-essential analytics</li>
+      </ul>
+
+      <p><strong>Copyright Notice</strong><br>
+        All content on this website — including design, text, branding and code — belongs to
+        <strong>Shumani Monyai</strong> unless stated otherwise.  
+        Re-use or redistribution without permission is not allowed.
+      </p>
+
+      <p><strong>External Links</strong><br>
+        I am not responsible for the privacy practices of third-party websites linked from this site.
+      </p>
+
+      <p><strong>Updates</strong><br>
+        This policy may be updated occasionally. Significant changes will be posted here.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <span class="copy">
+        © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved
+      </span>
+    </div>
+
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/shumani-m-75b73a278/" class="social"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Explora222" class="social"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // theme toggle
+    const toggle = document.getElementById("themeToggle");
+    toggle.onclick = () => {
+      document.body.classList.toggle("light");
+      toggle.classList.toggle("dark");
+    };
+  </script>
+
+</body>
+</html>
+
+

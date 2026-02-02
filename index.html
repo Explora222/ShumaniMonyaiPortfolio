@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Portfolio of Shumani Monyai - Frontend Developer & Web Developer. View projects, services, and experience." />
+    <meta name="keywords" content="Shumani Monyai, Frontend Developer, Web Developer, Portfolio, UI Developer" />
+    <meta name="author" content="Shumani Monyai" />
+    <title>Shumani Monyai | Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0b0b0b;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        /* ---------- LIGHT THEME ---------- */
+        body.light {
+            background: #ffffff;
+            color: #111;
+        }
+
+        body.light header,
+        body.light .card,
+        body.light footer {
+            background: #fff;
+            border-color: #e7e7e7;
+        }
+
+        body.light .cta-btn,
+        body.light .btn-primary {
+            color: #000
+        }
+
+        body.light .section h3 {
+            color: #0044ff
+        }
+
+        body.light .nav ul li a {
+            color: #444
+        }
+
+        body.light .card {
+            border: 1px solid #e7e7e7
+        }
+
+        body.light .card p {
+            color: #555
+        }
+
+        /* ---------- NAV ---------- */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            background: #0b0b0b;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        body.light header {
+            background: #fff;
+            border-color: #eee;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav ul li a {
+            font-size: 0.9rem;
+            color: #aaa
+        }
+
+        .nav ul li a:hover {
+            color: #0026ff
+        }
+
+        .cta-btn {
+            background: #0004ff;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: #1100ff;
+            font-size: 1.5rem
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 70px;
+            height: 32px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8px;
+            cursor: pointer;
+        }
+
+        /* icons */
+        .theme-switch i {
+            font-size: 14px;
+            color: #d4d4d4;
+            z-index: 2;
+        }
+
+        /* the moving highlight circle */
+        .theme-switch .thumb {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            transition: transform .25s ease;
+            left: 2px;
+        }
+
+        /* 🌙 When Dark Mode is Active */
+        .theme-switch.dark .thumb {
+            transform: translateX(36px);
+        }
+
+        /* little glow on active icon */
+        .theme-switch.dark .moon-icon,
+        .theme-switch:not(.dark) .sun-icon {
+            color: white;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            max-width: 1200px;
+            margin: 140px auto 0;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #1900ff;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.2
+        }
+
+        .hero h1 span {
+            color: #2600ff
+        }
+
+        .hero p {
+            margin: 18px 0;
+            color: #aaa;
+            max-width: 480px
+        }
+
+        .btns {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px
+        }
+
+        .btn-primary {
+            background: #2600ff;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            border: 1px solid #044ae0;
+            padding: 10px 18px;
+            border-radius: 30px;
+            color: #2600ff;
+            font-weight: 600;
+        }
+
+        .swap-hero {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 3 / 4;
+            /* change if you want */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        /* both images stack */
+        .hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity .35s ease;
+        }
+
+        /* the one showing */
+        .hero-img.active {
+            opacity: 1;
+        }
+
+        /* buttons */
+        .swap-btn {
+            position: absolute;
+            bottom: 16px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .coder-btn {
+            left: 16px;
+        }
+
+        .designer-btn {
+            right: 16px;
+        }
+
+        .green-blob {
+            position: absolute;
+            inset: -40px -60px -40px -60px;
+            /* extend outside image */
+            background: #000000;
+            filter: blur(55px);
+            opacity: .55;
+            border-radius: 45% 55% 40% 60%;
+            z-index: -1;
+        }
+
+        /* subtle pulsing */
+        .green-blob {
+            animation: blobMove 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes blobMove {
+            0% {
+                border-radius: 45% 55% 40% 60%;
+                transform: translate(-6px, 4px) scale(1);
+            }
+
+            100% {
+                border-radius: 55% 45% 55% 45%;
+                transform: translate(6px, -4px) scale(1.05);
+            }
+        }
+
+        /* ---------- ANIMATED GREEN STRIP ---------- */
+        .green-strip {
+            width: 100%;
+            background: #2f00ff;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .green-strip .inner {
+            display: flex;
+            gap: 30px;
+            padding: 10px 0;
+            white-space: nowrap;
+            animation: scroll 18s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ---------- CARDS ---------- */
+        .section {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 20px
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            color: #1900ff;
+            margin-bottom: 6px
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 18px
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .card {
+            background: #0f0f0f;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            padding: 22px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #2f00ff
+        }
+
+        .card i {
+            font-size: 1.6rem;
+            color: #2f00ff;
+            margin-bottom: 10px
+        }
+
+        .card p {
+            font-size: .9rem;
+            color: #aaa;
+            margin-bottom: 10px
+        }
+
+        .card a {
+            color: #1100ff;
+            font-size: .85rem
+        }
+
+
+
+        /* ---------- RESPONSIVE ---------- */
+        @media(max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:700px) {
+            .nav ul {
+                position: absolute;
+                top: 70px;
+                right: -100%;
+                background: #000;
+                flex-direction: column;
+                width: 200px;
+                padding: 20px;
+                transition: .3s;
+            }
+
+            body.light .nav ul {
+                background: #fff
+            }
+
+            .nav ul.show {
+                right: 0
+            }
+
+            .menu-toggle {
+                display: block
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .hero h1 {
+                font-size: 2.2rem
+            }
+        }
+
+        .section {
+            position: relative;
+        }
+
+        /* ---------- BIG BACKGROUND WORD (fluid) ---------- */
+        .bg-title {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            /* 🔥 scales smoothly across screens */
+            font-size: clamp(3rem, 12vw, 7rem);
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        body.light .bg-title {
+            color: rgba(0, 0, 0, 0.06);
+        }
+
+        /* keep real content above it */
+        .section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ---------- ABOUT WRAPPER ---------- */
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 30px;
+            align-items: center;
+            margin-top: 20px;
+            background: #0f0f0f;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px;
+            position: relative;
+        }
+
+        body.light .about-wrapper {
+            background: #ffffff;
+            border: 1px solid #e7e7e7;
+        }
+
+        /* ---------- TEXT ---------- */
+        .about h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+        }
+
+        .about h2 span {
+            color: #0400ff;
+        }
+
+        .about p {
+            color: #aaa;
+            margin-bottom: 12px;
+            font-size: clamp(.9rem, 2vw, 1.05rem);
+            line-height: 1.6;
+        }
+
+        body.light .about p {
+            color: #444;
+        }
+
+        /* ---------- STATS ---------- */
+        .stats {
+            display: flex;
+            gap: 22px;
+            /* 🔥 prevents wrapping issues */
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .stat {
+            text-align: center;
+            min-width: 110px;
+            /* keeps them tidy on small screens */
+        }
+
+        .stat h3 {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            color: #2600ff;
+        }
+
+        .stat p {
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- PHOTO SIDE ---------- */
+        .about-photo {
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .photo-bg {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border-radius: 30px;
+            background: linear-gradient(145deg, rgb(39, 24, 255), rgb(36, 12, 255));
+            filter: blur(45px);
+            opacity: .35;
+            z-index: -1;
+        }
+
+        body.light .photo-bg {
+            background: linear-gradient(145deg, #e7fff0, #dff8ff);
+            filter: blur(35px);
+            opacity: .9;
+        }
+
+        .about-photo img {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 18px;
+            object-fit: cover;
+        }
+
+        /* ---------- RESPONSIVE BREAKPOINTS ---------- */
+        @media(max-width:900px) {
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+                /* looks cleaner stacked */
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .about-photo img {
+                max-width: 320px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .about-wrapper {
+                padding: 20px;
+                border-radius: 18px;
+            }
+        }
+
+        /* 🌤 LIGHT THEME FIXES — HIGH CONTRAST & CLEAN BACKGROUNDS */
+        body.light {
+            background: #ffffff;
+            color: #111;
+        }
+
+        /* Header + Nav */
+        body.light header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        body.light .nav ul li a {
+            color: #444;
+        }
+
+        body.light .nav ul li a:hover {
+            color: #1d4ed8;
+        }
+
+        /* Mobile nav menu */
+        @media(max-width:700px) {
+            body.light .nav ul {
+                background: #ffffff;
+                border: 1px solid #eee;
+            }
+        }
+
+        /* Hero + body text */
+        body.light .page-hero p,
+        body.light .text p,
+        body.light .feature p,
+        body.light .step p {
+            color: #444;
+        }
+
+        /* Section label */
+        body.light .section h3 {
+            color: #1d4ed8;
+        }
+
+        /* Badges */
+        body.light .badge {
+            background: #eef2ff;
+            border: 1px solid #dbeafe;
+            color: #1e3a8a;
+        }
+
+        /* Cards & boxes */
+        body.light .feature,
+        body.light .step,
+        body.light .cta-box {
+            background: #fafafa;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Stack tags */
+        body.light .stack span {
+            border: 1px solid #e5e7eb;
+            color: #333;
+        }
+
+        /* Footer */
+        body.light footer {
+            color: #666;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Cursor stays visible */
+        body.light .cursor {
+            border-color: #1d4ed8;
+        }
+
+        body.light .cta-btn,
+        body.light .btn-primary {
+            color: #ffffff !important;
+            background: #2600ff;
+            /* keep your blue bg */
+        }
+
+        /* ========================= HERO ANIMATED CODE BG ========================= */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* the animation layer */
+        .code-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .18;
+            color: #0059ff;
+            font-family: "Courier New", monospace;
+            filter: blur(.3px);
+        }
+
+        /* make the text look like flowing code */
+        .code-bg pre {
+            position: absolute;
+            top: -200px;
+            left: -40px;
+            white-space: pre;
+            font-size: 14px;
+            line-height: 20px;
+            animation: moveCode 10s linear infinite;
+        }
+
+        /* smooth scroll downward */
+        @keyframes moveCode {
+            0% {
+                transform: translateY(-100px);
+            }
+
+            100% {
+                transform: translateY(420px);
+            }
+        }
+
+        /* Light theme color tweak */
+        body.light .code-bg {
+            color: #1d4ed8;
+            opacity: .12;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            /* adjust to your theme */
+        }
+
+        .logo img {
+            height: 42px;
+            /* adjust size */
+            width: auto;
+            display: block;
+        }
+
+        /* Main nav wrapper */
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+        }
+
+        /* Pill / glass container */
+        .glass-nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 8px 12px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Menu layout */
+        #menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu li a {
+            color: #ddd;
+            font-size: 0.9rem;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 30px;
+            transition: all .25s ease;
+        }
+
+        /* hover link */
+        #menu li a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        /* active item pill */
+        #menu li a.active {
+            background: #ffffff22;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Book call button */
+        .book-call {
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: #ffffff22;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: .25s;
+        }
+
+        .book-call:hover {
+            background: #ffffff33;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+        }
+
+        body.light .glass-nav {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        body.light #menu li a {
+            color: #555;
+        }
+
+        body.light #menu li a:hover,
+        body.light #menu li a.active {
+            background: #00000010;
+            color: #000;
+        }
+
+        body.light .book-call {
+            background: #00000008;
+            color: #000;
+        }
+
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin: 60px auto 10px;
+            color: #bfbfbf;
+            font-size: 0.9rem;
+            gap: 20px;
+        }
+
+        /* left side */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* availability pill */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .availability .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        /* copyright text */
+        .copy strong {
+            color: #fff;
+        }
+
+        /* links */
+        .site-footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #4a7dff;
+        }
+
+        /* right side */
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* socials */
+        .social {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+        }
+
+        .social:hover {
+            color: #4a7dff;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+            }
+        }
+
+        /* --- MOBILE LOGO PILL --- */
+        .mobile-pill {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: #101010;
+            border: 1px solid rgba(255, 255, 255, .15);
+            padding: 8px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, .4);
+        }
+
+        .pill-text {
+            font-weight: 600;
+            color: #044ae0;
+        }
+
+        /* --- SEARCH OVERLAY --- */
+        .search-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .overlay-box {
+            width: 92%;
+            max-width: 520px;
+            background: rgba(20, 20, 20, .9);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 18px;
+            padding: 18px;
+            color: #fff;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .45);
+        }
+
+        /* top search field */
+        .overlay-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .overlay-top input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+        }
+
+        /* label */
+        .overlay-label {
+            font-size: .7rem;
+            margin: 14px 6px;
+            letter-spacing: 1px;
+            opacity: .6;
+        }
+
+        /* menu */
+        .overlay-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .overlay-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            opacity: .88;
+        }
+
+        .overlay-menu li a:hover {
+            background: rgba(255, 255, 255, .08);
+        }
+
+        /* --- ONLY SHOW THIS ON SMALL SCREENS --- */
+        @media(max-width:700px) {
+
+            /* hide your normal nav list */
+            .nav ul {
+                display: none !important;
+            }
+
+            /* show the pill */
+            .mobile-pill {
+                display: flex;
+            }
+        }
+
+        /* ================= LIGHT THEME FOOTER ================= */
+        body.light .site-footer {
+            background: #f7f8fc;
+            /* soft neutral panel */
+            border-top: 1px solid #e2e4ef;
+            /* subtle divider */
+            color: #3a3a3a;
+            /* readable grey */
+        }
+
+        /* darker text highlight */
+        body.light .copy strong {
+            color: #0f172a;
+        }
+
+        /* links */
+        body.light .site-footer a {
+            color: #1f3fd1;
+        }
+
+        body.light .site-footer a:hover {
+            color: #1026a8;
+        }
+
+        /* socials */
+        body.light .social {
+            color: #4a5568;
+        }
+
+        body.light .social:hover {
+            color: #1f3fd1;
+        }
+
+        /* availability pill */
+        body.light .availability {
+            background: #eef1ff;
+            border: 1px solid #d9dfff;
+        }
+
+        body.light .availability .dot {
+            background: #12b886;
+        }
+        #location {
+  padding: 70px 20px;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(44, 44, 44, 0.03);
+  border-radius: 18px;
+  border: 1px solid rgba(119, 119, 119, 0.08);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 2.0rem;
+  margin-bottom: 10px;
+}
+
+.highlighted{
+  color:#2f48ff; /* your blue */
+  font-weight: 600;
+}
+
+.about-text p{
+  color:#686767;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.about-visual{
+  display:flex;
+  justify-content:center;
+}
+
+#globe-container{
+  width: 330px;
+  height: 330px;
+}
+
+/* responsive */
+@media(max-width:900px){
+  .about-container{
+    grid-template-columns: 1fr;
+    text-align:center;
+  }
+
+  #globe-container{
+    margin:auto;
+  }
+}
+.skills-section{
+  padding: 110px 20px;
+}
+
+.skills-container{
+  max-width: 1100px;
+  margin: auto;
+}
+
+.skills-badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:30px;
+  margin-bottom:8px;
+  font-size:.8rem;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.1);
+  color:#1b00ff;
+}
+
+body.light .skills-badge{
+  background:rgba(0,0,0,.05);
+  border:1px solid rgba(0,0,0,.1);
+}
+
+.skills-title{
+  font-size:2.6rem;
+  font-weight:600;
+  margin:10px 0 35px;
+}
+
+.skill-group{
+  margin-top:40px;
+}
+
+.skill-group h3{
+  font-weight:400;
+  margin-bottom:18px;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+  gap:20px;
+}
+
+.skill-icon{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-start;
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  transform:translateY(30px);
+  opacity:0;
+  transition:all .5s ease;
+}
+
+body.light .skill-icon{
+  background:rgba(0,0,0,.05);
+  border:1px solid rgba(0,0,0,.1);
+}
+
+/* icon */
+.skill-icon i{
+  font-size:22px;
+  color:#1b00ff;
+}
+
+/* text */
+.skill-icon span{
+  font-size:.95rem;
+}
+
+/* appear animation */
+.skill-icon.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* hover */
+.skill-icon:hover{
+  transform:translateY(-6px) scale(1.03);
+}
+.project-feature{
+  max-width:1200px;
+  margin:80px auto 30px;
+  padding:0 20px;
+}
+
+.project-content{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+/* TABLET FRAME */
+.tablet-frame{
+  background:#0b0b0b;
+  border-radius:28px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+
+body.light .tablet-frame{
+  background:#ffffff;
+  border:1px solid #e5e5e5;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.tablet-header{
+  display:flex;
+  gap:9px;
+  margin-bottom:10px;
+}
+
+.tablet-header span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#ff5f56;
+}
+
+.tablet-header span:nth-child(2){ background:#ffbd2e; }
+.tablet-header span:nth-child(3){ background:#27c93f; }
+
+/* IFRAME */
+.tablet-frame iframe{
+  width:100%;
+  height:400px;
+  border:none;
+  border-radius:18px;
+  background:#000;
+}
+
+/* RIGHT SIDE TEXT */
+.project-info h3{
+  font-size:1.9rem;
+  margin-bottom:6px;
+}
+
+.project-sub{
+  opacity:.8;
+  margin-bottom:12px;
+}
+
+.project-desc{
+  line-height:1.6;
+  margin-bottom:10px;
+  opacity:.9;
+}
+
+.project-points{
+  margin:10px 0 14px;
+  padding-left:18px;
+}
+
+.project-points li{
+  margin-bottom:6px;
+}
+
+/* BADGES */
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+
+.tags span{
+  padding:6px 10px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  font-size:.8rem;
+}
+
+body.light .tags span{
+  background:#f5f5f5;
+  border:1px solid #ddd;
+}
+
+/* SEE MORE */
+.see-more{
+  text-align:center;
+  margin-top:40px;
+}
+
+.see-more a{
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .project-content{
+    grid-template-columns:1fr;
+  }
+
+  .tablet-frame iframe{
+    height:320px;
+  }
+
+  .project-info{
+    text-align:center;
+  }
+
+  .tags{
+    justify-content:center;
+  }
+}
+/* --- PROJECTS SECTION --- */
+.projects-section{
+  position: relative;
+  padding: 90px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* faint big word background */
+.projects-section .bg-title{
+  position:absolute;
+  top:-10px;
+  left:0;
+  width:100%;
+  text-align:center;
+  font-size:7rem;
+  font-weight:900;
+  letter-spacing:4px;
+  color:rgba(255,255,255,0.04); /* match your theme */
+  pointer-events:none;
+  user-select:none;
+}
+
+/* header styles */
+.section-header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-title{
+  font-size:2.2rem;
+  font-weight:800;
+  margin-bottom:10px;
+  color:var(--text-color);
+}
+
+.section-sub{
+  max-width:650px;
+  margin:0 auto;
+  color:var(--muted-text, #bfbfbf);
+  font-size:0.90rem;
+  line-height:1.2;
+}
+
+/* ensure main content is contained like About section */
+.projects-wrapper{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:30px 20px;
+}
+@media (max-width:768px){
+  .projects-section .bg-title{
+    font-size:4.2rem;
+    top:-5px;
+  }
+  .section-title{
+    font-size:1.7rem;
+  }
+}
+/* ==== CTA SHOWCASE SECTION ==== */
+
+.cta-showcase{
+  text-align:center;
+  padding:120px 20px 110px;
+  position:relative;
+  overflow:hidden;
+  background:var(--card);
+  color:var(--text);
+}
+
+/* DARK THEME BACKGROUND */
+body.dark .cta-showcase{
+  background:radial-gradient(circle at top,#0b0b0b,#030303);
+}
+
+/* subtle abstract gloss (dark only) */
+body.dark .cta-showcase::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/asfalt-dark.png"),
+             linear-gradient(135deg,rgba(255,255,255,.05),rgba(0,0,0,.1));
+  opacity:.4;
+  mix-blend-mode:overlay;
+  pointer-events:none;
+}
+
+/* round logo pill */
+.cta-logo{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  margin:0 auto 28px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(0,0,0,.1);
+  background:radial-gradient(circle,#000000,#000000);
+  box-shadow:0 0 18px rgba(0,0,0,.12);
+}
+
+/* DARK VERSION OF LOGO PILL */
+body.dark .cta-logo{
+  background:radial-gradient(circle,#0f1f4a,#020611);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 0 30px rgba(0,0,0,.8),
+             0 0 25px rgba(30,87,255,.25) inset;
+}
+
+.cta-logo span{
+  font-weight:900;
+  font-size:2.2rem;
+  letter-spacing:1px;
+  background:linear-gradient(135deg,#ff3cac,#784ba0,#2b86c5);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* TITLE */
+.cta-showcase h2{
+  font-size:2.6rem;
+  line-height:1.25;
+  font-weight:800;
+  max-width:900px;
+  margin:0 auto 40px;
+  color:var(--text);
+}
+.cta-showcase h2 strong{
+  background:linear-gradient(135deg,#ff3cac,#784ba0,#2b86c5);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* BUTTON GROUP */
+.cta-controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+/* BUTTON */
+.cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:40px;
+  border:1px solid rgba(0,0,0,.15);
+  background:var(--card);
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  transition:.25s;
+}
+
+/* DARK border */
+body.dark .cta-btn{
+  border:1px solid rgba(255,255,255,.2);
+}
+
+.cta-btn:hover{
+  background:var(--accent);
+  color:#000;
+}
+
+/* ROTATING BADGE */
+.cta-badge{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:2px solid var(--accent);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.cta-badge span{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.55rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  animation:cta-spin 10s linear infinite;
+}
+
+@keyframes cta-spin{
+  to{transform:rotate(360deg);}
+}
+
+/* SUBTEXT */
+.cta-sub{
+  color:var(--muted);
+  max-width:800px;
+  margin:5px auto 0;
+}
+
+/* LOGO IMG SUPPORT */
+.cta-logo img{
+  width:55px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media(max-width:800px){
+  .cta-showcase h2{font-size:2.1rem;}
+  .cta-badge{width:78px;height:78px;}
+}
+
+@media(max-width:550px){
+  .cta-showcase h2{font-size:1.9rem;}
+  .cta-controls{gap:15px;}
+}
+
+/* ===== ANIMATED GREEN STRIP — BLUE THEME ===== */
+.green-strip{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  margin: 40px auto;
+  padding: 14px 18px;
+
+  border-radius: 16px;
+  background: linear-gradient(
+    120deg,
+    rgba(4, 0, 255, 0.14),
+    rgba(38, 0, 255, .10),
+    rgba(38, 0, 255, .14)
+  );
+  border: 1px solid rgba(38, 0, 255, .25);
+
+  color:#dfe4ff;
+}
+
+/* ===== LIGHT MODE ===== */
+body.light .green-strip{
+  background: linear-gradient(
+    120deg,
+    rgba(38, 0, 255, .18),
+    rgba(38, 0, 255, .10),
+    rgba(38, 0, 255, .18)
+  );
+  border: 1px solid rgba(38, 0, 255, .25);
+  color:#161a4d;
+}
+
+/* ===== SHIMMER ANIMATION STRIP ===== */
+.green-strip::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-40%;
+  width:40%;
+  height:100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(38, 0, 255, .35),
+    transparent
+  );
+  animation: sweep 3.5s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes sweep{
+  0%{ left:-40%; }
+  100%{ left:100%; }
+}
+
+/* ===== TEXT INSIDE STRIP ===== */
+.green-strip p,
+.green-strip h3{
+  margin:0;
+  font-size: clamp(.9rem, 2.5vw, 1.05rem);
+  line-height:1.6;
+}
+
+.green-strip i{
+  font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+/* ===== MOBILE TUNING ===== */
+@media(max-width:700px){
+
+  .green-strip{
+    padding: 12px 14px;
+    margin: 26px auto;
+    border-radius: 14px;
+  }
+
+  .green-strip::before{
+    width:55%;
+    left:-55%;
+  }
+}
+
+@media(max-width:480px){
+
+  .green-strip{
+    padding: 10px 12px;
+    margin: 20px auto;
+  }
+}
+
+/* ===== CERTIFICATIONS SECTION ===== */
+
+.certs-section{
+  max-width: 1050px;
+  margin: 70px auto;
+  padding: 0 18px;
+}
+
+.section-title{
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title i{
+  color: #0026ff; /* blue accent */
+}
+
+.certs-container{
+  background: linear-gradient(135deg, rgba(0,0,0,.35), rgba(0,0,0,.15));
+  border: 1px solid rgba(0, 60, 255, 0.28);
+  border-radius: 18px;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+body.light .certs-container{
+  background: rgba(240, 248, 255, .6);
+  border: 1px solid rgba(2, 17, 230, 0.25);
+}
+
+/* ===== EACH CARD ===== */
+
+.cert-card{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(4, 0, 255, 0.22);
+  border-radius: 14px;
+  padding: 12px 14px;
+  transition: .25s ease;
+}
+
+body.light .cert-card{
+  background: rgba(0, 153, 255, .05);
+  border: 1px solid rgba(17, 0, 255, 0.25);
+}
+
+.cert-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(0, 38, 255, 0.6);
+}
+
+/* ===== ICON ===== */
+
+.cert-icon{
+  font-size: 1.6rem;
+  color: #0011ff;
+}
+
+/* ===== TEXT ===== */
+
+.cert-info h4{
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cert-info p{
+  margin: 2px 0 0;
+  opacity: .8;
+  font-size: .9rem;
+}
+
+.cert-year{
+  font-size: .8rem;
+  opacity: .7;
+}
+
+/* ===== GRID LAYOUT ===== */
+
+@media(min-width: 720px){
+  .certs-container{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===== MORE BADGE ===== */
+
+.more-badge{
+  margin-top: 6px;
+  padding: 10px 12px;
+  text-align: center;
+
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 60, 255, 0.6);
+  color: #0004ff;
+  font-size: .9rem;
+}
+
+body.light .more-badge{
+  color:#003cff;
+  border-color:#0011ff;
+}
+/* --- SECTION LAYOUT --- */
+.about-section{
+  padding: 60px 20px;
+}
+
+.about-container{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+  box-sizing: border-box;
+}
+
+/* --- TEXT --- */
+.about-text p{
+  line-height: 1.7;
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
+
+/* --- GLOBE CONTAINER --- */
+.about-visual{
+  display: flex;
+  justify-content: center;
+}
+
+#globe-container{
+  width: 330px;
+  height: 330px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* --- TABLET + BELOW --- */
+@media (max-width: 900px){
+  .about-container{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-visual{
+    justify-content: center;
+  }
+
+  #globe-container{
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* --- SMALL PHONES --- */
+@media (max-width: 500px){
+
+  .about-section{
+    padding: 40px 15px;
+  }
+
+  .about-container{
+    gap: 25px;
+  }
+
+  #globe-container{
+    width: 210px;
+    height: 210px;
+  }
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="code-bg">
+                <pre> const dev = "Shumani"; function build(){ return "clean UI"; } setInterval(build, 1000); </pre>
+            </div>
+            <div class="logo"> <a href="index.html"><img src="log.png" alt="Shumani Monyai Logo"></a> </div>
+            <div class="code-bg">
+                <pre> const dev = "Shumani"; function build(){ return "clean UI"; } setInterval(build, 1000); </pre>
+            </div>
+            <nav class="nav">
+                <div class="logo"> </div> <!-- MOBILE LOGO PILL (shown only on small screens) -->
+                <div class="mobile-pill" id="mobilePill"> <span class="pill-text">Shumai</span> </div>
+                <div class="glass-nav">
+                    <ul id="menu">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#Aboutme">About Me</a></li>
+                        <li><a href="#certifications"></i> Certifications</a></li>
+                         <li><a href="contact.html"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="theme-switch" id="themeToggle"> <i class="fa-solid fa-sun sun-icon"></i> <i
+                    class="fa-solid fa-moon moon-icon"></i> <span class="thumb"></span> </div>
+        </div> <!-- SEARCH / NAV OVERLAY -->
+        <div class="search-overlay" id="searchOverlay">
+            <div class="overlay-box">
+                <div class="overlay-top"> <i class="fa fa-search"></i> <input type="text" placeholder="Search" /> <i
+                        class="fa fa-close" id="closeOverlay"></i> </div>
+                <p class="overlay-label">PAGES</p>
+                <ul class="overlay-menu">
+                    <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+                    <li><a href="#projects"><i class="fa fa-diagram-project"></i> Projects</a></li>
+                    <li><a href="contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <div class="code-bg">
+            <pre> const dev = "Shumani"; function build(){ return "clean UI"; } setInterval(build, 1000); </pre>
+        </div>
+        <div>
+            <div class="badge">Hello There!</div>
+            <h1>I’m <span>Shumani Monyai</span>,<br />Frontend & Web Developer<br />based in South Africa.</h1>
+            <p>I craft responsive, accessible, and high performing web experiences, bringing modern design and code
+                together.</p>
+            <div class="btns"> <a class="btn-primary" href="#projects">View My Work</a> <a class="btn-outline"
+                    href="Shumani_Monyai_Resume.pdf" download>Download CV</a> </div>
+        </div>
+        <div class="swap-hero"> <img src="code.png" class="hero-img designer-img"> <img src="designer.png"
+                class="hero-img coder-img active"> <button class="swap-btn coder-btn">Frontend Dev</button> <button
+                class="swap-btn designer-btn"> Web Designer</button> </div>
+    </section>
+    <div class="green-strip">
+        <div class="inner">
+            <div>Web Development</div>
+            <div>Frontend Development</div>
+            <div>UI Implementation</div>
+            <div>Responsive Design</div>
+            <div>Dashboard Builds</div>
+            <div>Web Apps</div>
+            <div>Web Development</div>
+            <div>Frontend Development</div>
+            <div>Web Development</div>
+            <div>Frontend Development</div>
+            <div>UI Implementation</div>
+            <div>Responsive Design</div>
+            <div>Dashboard Builds</div>
+            <div>Web Apps</div>
+            <div>Web Development</div>
+            <div>Frontend Development</div>
+        </div>
+    </div>
+    <section class="section" id="services">
+        <div class="bg-title">SERVICES</div>
+        <h3>My Specialization</h3>
+        <h2>Services I Provide</h2>
+        <div class="cards">
+            <div class="card"> <i class="fas fa-layer-group"></i>
+                <h4>Frontend Development</h4>
+                <p>Building responsive, pixel perfect interfaces with clean, maintainable code.</p> <a
+                    href="frontenddev.html">Learn more</a>
+            </div>
+            <div class="card"> <i class="fas fa-code"></i>
+                <h4>Web Development</h4>
+                <p>Creating fast, secure and scalable web experiences tailored to your needs.</p> <a
+                    href="webdev.html">Learn more</a>
+            </div>
+            <div class="card"> <i class="fas fa-desktop"></i>
+                <h4>UI Integration</h4>
+                <p>Translating UI/UX designs into smooth and interactive web experiences.</p> <a
+                    href="UI.inte.html">Learn more</a>
+            </div>
+        </div>
+    </section>
+    <section id="Aboutme" class="about section">
+        <h3>Know About Me</h3>
+        <h2>Web Developer with Frontend <span>Specialization</span></h2>
+        <div class="about-wrapper">
+            <div class="about-text">
+                <p> I'm Shumani Monyai, a frontend and web developer with 3-4 years of freelance experience building
+                    responsive, user focused websites. I enjoy turning ideas into functional, engaging web interfaces
+                    using modern frontend technologies. </p>
+                <p> Through freelancing, I’ve developed strong problem solving skills, adaptability, and an eye for
+                    clean, maintainable code. I’m always eager to bring my skills into real world environments,
+                    collaborate with others, and contribute to impactful digital products. </p>
+                <div class="stats">
+                    <div class="stat">
+                        <h3>4+</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Clients Satisfied</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-photo"> <span class="photo-bg"></span> <img src="coder.png" alt="profile"> </div>
+        </div>
+    </section>
+
+<section id="location" class="about-section">
+  <div class="about-container">
+    
+    <div class="about-text">
+      <h2 class="section-title">
+        Based in <span class="highlighted">South Africa</span>
+      </h2>
+
+      <p>
+        I'm proudly based in South Africa, where I design and develop modern,
+        responsive, and engaging web experiences for clients across the globe.
+        My passion for clean UI, smooth user interactions, and scalable frontend
+        architecture drives every project I work on.
+      </p>
+
+      <p>
+        While rooted in South Africa, my work reaches international clients 
+        collaborating remotely, delivering high quality solutions, and constantly
+        growing my skills in the global tech space.
+      </p>
+    </div>
+
+    <div class="about-visual">
+      <div id="globe-container"></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <div class="skills-container">
+
+    <p class="skills-badge">MY SKILLS</p>
+    <h2 class="skills-title">Skills & Technologies</h2>
+
+    <!-- GROUP: LANGUAGES -->
+    <div class="skill-group">
+      <h3>Languages</h3>
+
+      <div class="skills-grid">
+        <div class="skill-icon"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+        <div class="skill-icon"><i class="fa-brands fa-js"></i><span>TypeScript</span></div>
+        <div class="skill-icon"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-icon"><i class="fa-brands fa-java"></i><span>Java</span></div>
+        <div class="skill-icon"><i class="fa-solid fa-code"></i><span>C#</span></div>
+      </div>
+    </div>
+
+    <!-- GROUP: FRAMEWORKS -->
+    <div class="skill-group">
+      <h3>Frameworks</h3>
+
+      <div class="skills-grid">
+        <div class="skill-icon"><i class="fa-brands fa-react"></i><span>React</span></div>
+        <div class="skill-icon"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+        <div class="skill-icon"><i class="fa-solid fa-arrow-trend-up"></i><span>Next.js</span></div>
+        <div class="skill-icon"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Tailwind CSS</span></div>
+      </div>
+    </div>
+
+    <!-- GROUP: TOOLS -->
+    <div class="skill-group">
+      <h3>Tools</h3>
+
+      <div class="skills-grid">
+        <div class="skill-icon"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+        <div class="skill-icon"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+        <div class="skill-icon"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+      </div>
+    </div>
+
+    <!-- GROUP: SOFT SKILLS -->
+    <div class="skill-group">
+      <h3>Soft Skills</h3>
+
+      <div class="skills-grid">
+        <div class="skill-icon"><i class="fa-solid fa-puzzle-piece"></i><span>Problem Solving</span></div>
+        <div class="skill-icon"><i class="fa-solid fa-comments"></i><span>Communication</span></div>
+        <div class="skill-icon"><i class="fa-solid fa-users"></i><span>Team Leadership</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects" class="projects-section">
+
+  <!-- BIG BACKGROUND WORD -->
+  <div class="bg-title">PROJECTS</div>
+
+  <!-- HEADER -->
+  <div class="section-header">
+    <h2 class="section-title">My Projects</h2>
+    <p class="section-sub">
+      A collection of work that highlights my passion for building modern, responsive web experiences.
+    </p>
+  </div>
+
+    <!-- LEFT — TABLET FRAME -->
+    <div class="tablet-frame">
+      <div class="tablet-header">
+        <span></span><span></span><span></span>
+      </div>
+
+      <!-- LIVE PREVIEW -->
+      <iframe 
+        src="https://fynode.netlify.app/" 
+        loading="lazy"
+        title="Fynode E-Commerce Live Preview">
+      </iframe>
+    </div>
+
+    <!-- RIGHT — INFO -->
+    <div class="project-info">
+      <h3>Fynode E-Commerce</h3>
+      <p class="project-sub">Full-Stack E-Commerce Platform</p>
+
+      <p class="project-desc">
+        A modern e-commerce platform built with React and TypeScript, featuring
+        a shopping cart, product filtering, and responsive design.
+      </p>
+
+      <ul class="project-points">
+        <li>Built with React and TypeScript for scalable development.</li>
+        <li>Shopping cart powered by Redux for state management.</li>
+        <li>Fully responsive UI built using Tailwind CSS.</li>
+        <li>Modern product filtering & smooth UX design.</li>
+      </ul>
+
+      <div class="tags">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>Tailwind</span>
+        <span>Redux</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEE MORE -->
+  <div class="see-more">
+    <a href="projects.html">See more projects →</a>
+  </div>
+</section>
+
+<section id="certifications" class="certs-section">
+  <h2 class="section-title">
+    <i class="fas fa-certificate"></i>
+    Certifications & Awards
+  </h2>
+
+  <div class="certs-container">
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fas fa-code"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>Fullstack Dev Bootcamp</h4>
+        <p>FNB</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>Microsoft C# Certification</h4>
+        <p>Microsoft</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fab fa-react"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>React Development</h4>
+        <p>WildLearner</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fas fa-server"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>Node.js Backend Architecture</h4>
+        <p>WildLearner</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fas fa-database"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>MongoDB Data Specialist</h4>
+        <p>WildLearner</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fab fa-python"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>Python</h4>
+        <p>WildLearner</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fab fa-angular"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>Angular</h4>
+        <p>HackerRank</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon"><i class="fas fa-database"></i></div>
+      <div class="cert-info">
+        <span class="cert-year">2025</span>
+        <h4>SQL</h4>
+        <p>HackerRank</p>
+      </div>
+    </div>
+
+    <div class="more-badge">
+      +15 More industry certifications available upon request
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="cta-showcase">
+  
+  <div class="cta-logo">
+   
+    <img src="log.png" alt="logo">
+
+  </div>
+
+  <h2>
+    FROM IDEAS TO <strong>PIXEL-PERFECT</strong><br>
+    LET'S BUILD SOMETHING <strong>AMAZING</strong>
+  </h2>
+
+  <div class="cta-controls">
+
+    <a href="contact.html" class="cta-btn">
+      Get In Touch <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+
+
+  </div>
+
+  <p class="cta-sub">
+    Frontend & web developer crafting modern, fast and visually driven digital experiences.
+    Available for full-time & freelance work.
+  </p>
+
+</section>
+
+    <footer class="site-footer">
+        <div class="footer-left"> <span class="availability"> <span class="dot"></span> Available for work </span> <span
+                class="copy"> © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved </span> <a
+                href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms of Use</a> </div>
+        <div class="footer-right"> <!-- OPTIONAL: your theme switcher -->
+            <div class="theme-switch" id="themeToggle"> <span class="thumb"></span> </div> <!-- Socials --> <a
+                href="https://www.linkedin.com/in/shumani-m-75b73a278/" class="social"><i
+                    class="fab fa-linkedin"></i></a> <a href="https://github.com/Explora222" class="social"><i
+                    class="fab fa-github"></i></a>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+<script>
+const container = document.getElementById("globe-container");
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+  40,
+  container.clientWidth / container.clientHeight,
+  0.1,
+  1000
+);
+
+const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
+
+camera.position.z = 4;
+
+/* --- GLOBE --- */
+const geometry = new THREE.SphereGeometry(1.3, 64, 64);
+const material = new THREE.MeshStandardMaterial({
+  color: "#1a2bff",
+  emissive: "#0a0a3a",
+  roughness: 0.4,
+  metalness: 0.2,
+  wireframe:true
+});
+const globe = new THREE.Mesh(geometry, material);
+scene.add(globe);
+
+/* --- LIGHT --- */
+const light = new THREE.PointLight(0xffffff, 2);
+light.position.set(5,5,5);
+scene.add(light);
+
+/* --- SA MARKER --- */
+function addMarker(lat, lon){
+  const phi = (90 - lat) * (Math.PI/180);
+  const theta = (lon + 180) * (Math.PI/180);
+
+  const markerGeo = new THREE.SphereGeometry(0.05, 16, 16);
+  const markerMat = new THREE.MeshBasicMaterial({ color:"#00ffea" });
+  const marker = new THREE.Mesh(markerGeo, markerMat);
+
+  marker.position.x = - (1.3 * Math.sin(phi) * Math.cos(theta));
+  marker.position.y =   1.3 * Math.cos(phi);
+  marker.position.z =   1.3 * Math.sin(phi) * Math.sin(theta);
+
+  scene.add(marker);
+}
+
+/* South Africa approx (Pretoria/JHB area) */
+addMarker(-30, 25);
+
+/* --- ANIMATE --- */
+function animate(){
+  requestAnimationFrame(animate);
+  globe.rotation.y += 0.004;
+  renderer.render(scene, camera);
+}
+animate();
+
+/* --- RESIZE --- */
+window.addEventListener("resize", ()=>{
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  renderer.setSize(w,h);
+  camera.aspect = w/h;
+  camera.updateProjectionMatrix();
+});
+
+const resizeGlobe = () => {
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+};
+
+resizeGlobe();
+window.addEventListener("resize", resizeGlobe);
+
+</script>
+<script>
+const skillCards = document.querySelectorAll(".skill-icon");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>entry.target.classList.add("show"), i*70);
+    }
+  });
+},{threshold:.2});
+
+skillCards.forEach(el=>observer.observe(el));
+</script>
+
+    <script> const links = document.querySelectorAll("#menu a"); links.forEach(l => { l.addEventListener("click", () => { links.forEach(a => a.classList.remove("active")); l.classList.add("active"); }); }); </script>
+    <script> document.getElementById("year").textContent = new Date().getFullYear(); </script>
+    <script> const mobilePill = document.getElementById("mobilePill"); const searchOverlay = document.getElementById("searchOverlay"); const closeOverlay = document.getElementById("closeOverlay"); const searchInput = searchOverlay.querySelector(".overlay-top input"); const overlayMenu = document.querySelector(".overlay-menu"); mobilePill.addEventListener("click", () => { searchOverlay.style.display = "flex"; searchInput.focus(); }); closeOverlay.addEventListener("click", () => { searchOverlay.style.display = "none"; }); searchOverlay.addEventListener("click", (e) => { if (e.target === searchOverlay) { searchOverlay.style.display = "none"; } }); searchInput.addEventListener("keyup", (e) => { const searchTerm = e.target.value.toLowerCase(); const menuItems = overlayMenu.querySelectorAll("li"); menuItems.forEach(item => { const text = item.textContent.toLowerCase(); if (text.includes(searchTerm)) { item.style.display = ""; } else { item.style.display = "none"; } }); }); </script>
+    <script> function toggleMenu() { document.getElementById('menu').classList.toggle('show'); } document.getElementById('year').innerText = new Date().getFullYear(); /* theme toggle */ document.getElementById("themeToggle").onclick = function () { document.body.classList.toggle("light"); }; const hero = document.querySelector('.split-hero'); hero.addEventListener('click', (e) => { const rect = hero.getBoundingClientRect(); const x = e.clientX - rect.left; const clickedLeft = x < rect.width / 2; if (clickedLeft) { hero.classList.add('show-coder'); hero.classList.remove('show-designer'); } else { hero.classList.add('show-designer'); hero.classList.remove('show-coder'); } }); </script>
+    <script> function togglePhone(el) { el.classList.toggle("active"); } </script>
+    <script> const coder = document.querySelector('.designer-img'); const designer = document.querySelector('.coder-img'); document.querySelector('.designer-btn').onclick = () => { coder.classList.add('active'); designer.classList.remove('active'); }; document.querySelector('.coder-btn').onclick = () => { designer.classList.add('active'); coder.classList.remove('active'); }; </script>
+
+</body>
+
+</html>

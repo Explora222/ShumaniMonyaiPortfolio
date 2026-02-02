@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UI Integration | Shumani Monyai</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0b0b0b;
+      color:#fff;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* LIGHT MODE */
+    body.light{background:#ffffff;color:#111}
+    body.light header{background:#ffffff;border-bottom:1px solid #e7e7eb}
+    body.light .hero p,
+    body.light .box p{color:#444}
+    body.light .badge{
+      background:#eef2ff;
+      border:1px solid #dbeafe;
+      color:#1d4ed8;
+    }
+    body.light .box{
+      background:#fafafa;
+      border:1px solid #e5e7eb;
+    }
+    body.light footer{
+      border-top:1px solid #e5e7eb;
+      color:#666
+    }
+
+    /* HEADER */
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:10;
+      background:#0b0b0b;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      max-width:1100px;
+      margin:auto;
+      padding:16px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .logo{font-weight:700;font-size:1.2rem;display:flex;gap:8px;align-items:center}
+    .logo span{
+      width:26px;height:26px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#2600ff;
+      color:#fff;
+      font-size:.85rem;
+    }
+    .back-link{font-size:.9rem;color:#aaa}
+    .back-link:hover{color:#1d4ed8}
+   .theme-switch {
+  position: relative;
+  width: 70px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+/* icons */
+.theme-switch i {
+  font-size: 14px;
+  color: #d4d4d4;
+  z-index: 2;
+}
+
+/* the moving highlight circle */
+.theme-switch .thumb {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: transform .25s ease;
+  left: 2px;
+}
+
+/* 🌙 When Dark Mode is Active */
+.theme-switch.dark .thumb {
+  transform: translateX(36px);
+}
+
+/* little glow on active icon */
+.theme-switch.dark .moon-icon,
+.theme-switch:not(.dark) .sun-icon {
+  color: white;
+}
+
+
+    /* HERO */
+    .hero{
+      max-width:1100px;
+      margin:130px auto 30px;
+      padding:0 20px 20px;
+    }
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:20px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:.8rem;
+      color:#2f00ff;
+      margin-bottom:10px;
+    }
+    .hero h1{font-size:2.4rem;line-height:1.2}
+    .hero h1 span{color:#2f00ff}
+    .hero p{max-width:650px;margin-top:10px;color:#aaa}
+
+    /* SECTION */
+    .section{max-width:1100px;margin:40px auto;padding:0 20px}
+    .section h2{font-size:1.8rem;margin-bottom:14px}
+    .section h3{font-size:1.1rem;color:#2f00ff;margin-bottom:6px}
+
+    .boxes{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .box{
+      background:#0f0f0f;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.08);
+      padding:20px;
+    }
+    .box i{color:#2f00ff;font-size:1.4rem;margin-bottom:10px}
+    .box p{font-size:.9rem;color:#aaa;margin-top:6px}
+
+    /* STACK TAGS */
+    .stack{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:8px;
+    }
+    .stack span{
+      padding:6px 10px;
+      border-radius:30px;
+      background:#0b0b0b;
+      border:1px solid rgba(255,255,255,.15);
+      font-size:.8rem;
+    }
+
+    /* CTA */
+    .cta{text-align:center;margin-top:30px}
+    .cta a{
+      background:#2600ff;
+      padding:12px 22px;
+      border-radius:25px;
+      font-weight:600;
+      display:inline-block;
+      margin-top:10px;
+    }
+
+       .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin: 60px auto 10px;
+            color: #bfbfbf;
+            font-size: 0.9rem;
+            gap: 20px;
+        }
+
+        /* left side */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* availability pill */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .availability .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        /* copyright text */
+        .copy strong {
+            color: #fff;
+        }
+
+        /* links */
+        .site-footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #4a7dff;
+        }
+
+        /* right side */
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* socials */
+        .social {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+        }
+
+        .social:hover {
+            color: #4a7dff;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+            }
+        }
+           /* ================= LIGHT THEME FOOTER ================= */
+        body.light .site-footer {
+            background: #f7f8fc;
+            /* soft neutral panel */
+            border-top: 1px solid #e2e4ef;
+            /* subtle divider */
+            color: #3a3a3a;
+            /* readable grey */
+        }
+
+        /* darker text highlight */
+        body.light .copy strong {
+            color: #0f172a;
+        }
+
+        /* links */
+        body.light .site-footer a {
+            color: #1f3fd1;
+        }
+
+        body.light .site-footer a:hover {
+            color: #1026a8;
+        }
+
+        /* socials */
+        body.light .social {
+            color: #4a5568;
+        }
+
+        body.light .social:hover {
+            color: #1f3fd1;
+        }
+
+        /* availability pill */
+        body.light .availability {
+            background: #eef1ff;
+            border: 1px solid #d9dfff;
+        }
+
+        body.light .availability .dot {
+            background: #12b886;
+        }
+
+
+
+    @media(max-width:900px){.boxes{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){
+      .boxes{grid-template-columns:1fr}
+      .hero h1{font-size:2rem}
+    }
+      .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            /* adjust to your theme */
+        }
+
+        .logo img {
+            height: 42px;
+            /* adjust size */
+            width: auto;
+            display: block;
+        }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+     <div class="logo">
+                <a href="index.html"><img src="log.png" alt="Shumani Monyai Logo"></a>
+                
+            </div>
+
+    <a href="index.html" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="theme-switch" id="themeToggle">
+  <i class="fa-solid fa-sun sun-icon"></i>
+  <i class="fa-solid fa-moon moon-icon"></i>
+  <span class="thumb"></span>
+</div>
+
+  </div>
+</header>
+
+<section class="hero">
+  <div class="badge">UI Integration</div>
+  <h1>Smooth & Pixel-Perfect <span>UI Integration</span></h1>
+  <p>
+    I turn UI/UX designs into clean, responsive and interactive web experiences —
+    ensuring every component looks accurate, performs well and feels amazing to use.
+  </p>
+</section>
+
+<section class="section">
+  <h3>What I Offer</h3>
+  <h2>Design-Driven Frontend Development</h2>
+
+  <div class="boxes">
+    <div class="box">
+      <i class="fa-solid fa-layer-group"></i>
+      <h4>Pixel-Perfect Conversion</h4>
+      <p>Implementing designs exactly as envisioned across all screen sizes.</p>
+    </div>
+
+    <div class="box">
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <h4>Fully Responsive Interfaces</h4>
+      <p>Every layout adapts beautifully to mobile, tablet and desktop.</p>
+    </div>
+
+    <div class="box">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <h4>Animations & Interactions</h4>
+      <p>Subtle UI motion that enhances usability without slowing performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h3>Tools & Tech</h3>
+  <h2>UI Integration Stack</h2>
+
+  <div class="stack">
+    <span>HTML5</span>
+    <span>CSS3 / SCSS</span>
+    <span>JavaScript</span>
+    <span>React</span>
+    <span>Tailwind</span>
+    <span>Figma → Code</span>
+    <span>Responsive Design</span>
+    <span>Accessibility</span>
+  </div>
+</section>
+
+<section class="section">
+  <h3>Process</h3>
+  <h2>How Integration Happens</h2>
+
+  <div class="boxes">
+    <div class="box">
+      <i class="fa-solid fa-magnifying-glass-chart"></i>
+      <h4>1. Analyze Design</h4>
+      <p>Understand structure, states & interaction patterns.</p>
+    </div>
+
+    <div class="box">
+      <i class="fa-solid fa-code"></i>
+      <h4>2. Implement UI</h4>
+      <p>Translate designs into clean, scalable components.</p>
+    </div>
+
+    <div class="box">
+      <i class="fa-solid fa-check-double"></i>
+      <h4>3. Test & Refine</h4>
+      <p>Ensure accuracy, performance & accessibility.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <p>Need your designs brought to life?</p>
+    <a href="index.html#contact">Let’s Work Together</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+
+        <div class="footer-left">
+            
+
+            <span class="copy">
+                © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved
+            </span>
+
+           
+        </div>
+
+        <div class="footer-right">
+            <!-- OPTIONAL: your theme switcher -->
+            <div class="theme-switch" id="themeToggle">
+
+                <span class="thumb"></span>
+            </div>
+
+            <!-- Socials -->
+            <a href="https://www.linkedin.com/in/shumani-m-75b73a278/" class="social"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Explora222" class="social"><i class="fab fa-github"></i></a>
+
+        </div>
+
+    </footer>
+
+<script>
+  document.getElementById("themeToggle").onclick=function(){
+    document.body.classList.toggle("light");
+  };
+
+  document.getElementById("year").innerText=new Date().getFullYear();
+</script>
+</body>
+</html>
+
+

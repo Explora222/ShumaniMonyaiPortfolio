@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact | Shumani Monyai</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins, sans-serif;
+  background:#050505;
+  color:#fff;
+}
+a{text-decoration:none;color:inherit}
+
+:root{
+  --blue:#2600ff;
+  --card:#0d0d0d;
+  --border:rgba(255,255,255,.12);
+}
+
+/* LIGHT */
+body.light{background:#fff;color:#111}
+body.light header{background:#fff;border-bottom:1px solid #e5e7eb}
+body.light .card{background:#fafafa;border:1px solid #e5e7eb}
+body.light .calendar-day{background:#fff;color:#111;border:1px solid #eee}
+body.light .calendar-day.active{background:#2600ff;color:#fff}
+body.light .time-slot{background:#fff;border:1px solid #ddd;color:#111}
+body.light .time-slot.active{background:#2600ff;color:#fff}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;width:100%;
+  background:#050505;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:50;
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{display:flex;align-items:center;gap:8px;font-size:1.2rem;font-weight:700}
+.logo img{height:40px}
+
+.menu{display:flex;gap:20px;list-style:none}
+.menu a{color:#bfbfbf;font-size:.9rem}
+.menu a:hover{color:var(--blue)}
+
+.theme-toggle{cursor:pointer;font-size:1.2rem;color:var(--blue)}
+.menu-toggle{display:none;font-size:1.4rem;color:var(--blue);cursor:pointer}
+
+@media(max-width:750px){
+  .menu{position:absolute;top:70px;right:-100%;background:#050505;
+    border:1px solid rgba(255,255,255,.1);padding:18px;border-radius:16px;
+    flex-direction:column;transition:.3s}
+  .menu.show{right:10px}
+  body.light .menu{background:#fff}
+  .menu-toggle{display:block}
+}
+
+/* PAGE */
+.page{
+  margin-top:110px;
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:20px;
+  position:relative;
+}
+
+/* BACKGROUND WORD */
+.bg-word{
+  position:absolute;
+  top:30px;
+  left:10px;
+  font-size:8rem;
+  font-weight:800;
+  opacity:.04;
+  letter-spacing:4px;
+  user-select:none;
+  pointer-events:none;
+}
+@media(max-width:700px){
+  .bg-word{font-size:4.5rem;top:10px}
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:28px;
+}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+}
+
+/* LEFT */
+.left h1{font-size:2.1rem;margin-bottom:6px}
+.left span{color:var(--blue)}
+.left p{color:#aaa;margin-bottom:12px}
+.info{display:flex;align-items:center;gap:10px;color:#bbb;margin-bottom:10px}
+.info i{color:var(--blue)}
+
+/* SOCIAL */
+.social{display:flex;gap:12px;margin-top:12px}
+.social a{
+  width:36px;height:36px;display:grid;place-items:center;
+  border-radius:50%;border:1px solid var(--border);color:#cfd7ff;
+}
+.social a:hover{border-color:var(--blue);color:#fff;background:var(--blue)}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:22px;
+}
+
+/* FORM */
+form label{font-size:.8rem}
+form input,form textarea{
+  width:100%;margin:5px 0 12px;padding:12px 14px;
+  border-radius:14px;border:1px solid rgba(255,255,255,.14);
+  background:#0f0f0f;color:#fff;
+}
+form input:focus,form textarea:focus{border-color:var(--blue);outline:none}
+button{
+  border:none;background:var(--blue);color:#fff;font-weight:600;
+  border-radius:30px;padding:10px 20px;cursor:pointer;
+}
+
+/* CALENDAR */
+.calendar-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:10px;
+}
+.month{font-weight:600}
+.nav-btn{
+  cursor:pointer;padding:6px 9px;border-radius:10px;
+  border:1px solid var(--border);
+}
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+}
+.calendar-day{
+  padding:12px 0;border-radius:12px;text-align:center;
+  background:#0f0f0f;border:1px solid rgba(255,255,255,.14);
+  cursor:pointer;
+}
+.calendar-day.active{background:var(--blue);border-color:transparent}
+.times{margin-top:16px;max-height:260px;overflow-y:auto}
+.time-slot{
+  padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.14);
+  margin-bottom:6px;background:#0f0f0f;cursor:pointer;
+}
+.time-slot.active{background:var(--blue);border-color:transparent}
+
+.site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin: 60px auto 10px;
+            color: #bfbfbf;
+            font-size: 0.9rem;
+            gap: 20px;
+        }
+
+        /* left side */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* availability pill */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .availability .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        /* copyright text */
+        .copy strong {
+            color: #fff;
+        }
+
+        /* links */
+        .site-footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #4a7dff;
+        }
+
+        /* right side */
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* socials */
+        .social {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+        }
+
+        .social:hover {
+            color: #4a7dff;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+            }
+        }
+
+/* Scrollbars */
+.times::-webkit-scrollbar{width:6px}
+.times::-webkit-scrollbar-thumb{background:#333;border-radius:10px}
+/* -------------------------------
+   UNIVERSAL RESPONSIVE SYSTEM
+--------------------------------*/
+
+/* 1) Fluid type + spacing */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1100px) {
+  html { font-size: 15px; }
+}
+
+@media (max-width: 900px) {
+  html { font-size: 14px; }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 13.5px; }
+}
+
+/* 2) Global layout container */
+.page,
+.nav,
+.site-footer {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 3) Prevent overflow on small screens */
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.card {
+  width: 100%;
+  min-width: 0;
+}
+
+/* 4) Mobile grid stacking improvements */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+/* 5) Headings + text scale nicely */
+.left h1 {
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .left h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* 6) Background word scaling + positioning */
+@media (max-width: 500px) {
+  .bg-word {
+    font-size: 3.8rem;
+    left: 4px;
+  }
+}
+
+/* 7) Navbar spacing + tapping size */
+.nav {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.menu a {
+  padding: 6px 0;
+}
+
+/* Ensure mobile dropdown never clips */
+@media (max-width: 750px) {
+  .menu {
+    right: -120%;
+    max-width: 260px;
+  }
+}
+
+/* 8) Card padding adjusts on smaller screens */
+@media (max-width: 600px) {
+  .card {
+    padding: 16px;
+  }
+}
+
+/* 9) Form elements – bigger tap area */
+form input,
+form textarea {
+  font-size: 0.9rem;
+  padding: 12px 14px;
+}
+
+button {
+  font-size: 0.9rem;
+  padding: 10px 20px;
+}
+
+/* 10) Calendar tweaks */
+.days {
+  gap: 6px;
+}
+
+.calendar-day {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 400px) {
+  .calendar-day {
+    padding: 10px 0;
+  }
+}
+
+/* 11) Time list – safer height on mobile */
+@media (max-width: 600px) {
+  .times {
+    max-height: 200px;
+  }
+}
+
+/* 12) Footer always looks tidy */
+.site-footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer-left,
+.footer-right {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .footer-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* 13) Avoid super-wide bg word overlapping clicks */
+.bg-word {
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 14) Smooth layout behavior */
+* {
+  min-width: 0;
+}
+
+/* 15) Reduce motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <div class="logo">
+      <a href="index.html"><img src="log.png" alt=""></a>
+      
+    </div>
+
+    <i id="menuBtn" class="fa-solid fa-bars menu-toggle"></i>
+
+    <ul id="menu" class="menu">
+      <li><a href="index.html">Home</a></li>
+    </ul>
+
+    <i id="theme" class="fa-solid fa-circle-half-stroke theme-toggle"></i>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="bg-word">CONTACT</div>
+
+  <div class="grid">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <h1>Book a <span>30-min Meeting</span></h1>
+      <p>Select a date + time and I’ll confirm the meeting (Google Meet).</p>
+
+      <div class="info"><i class="fa-solid fa-globe"></i> Africa/Johannesburg</div>
+
+      <div class="card">
+
+        <div class="calendar-header">
+          <span id="month" class="month"></span>
+          <div>
+            <span id="prev" class="nav-btn"><i class="fa-solid fa-chevron-left"></i></span>
+            <span id="next" class="nav-btn"><i class="fa-solid fa-chevron-right"></i></span>
+          </div>
+        </div>
+
+        <div id="days" class="days"></div>
+        <div class="times" id="times"></div>
+      </div>
+
+      <div class="social">
+        <a href="https://github.com/Explora222" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/shumani-m-75b73a278/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="card">
+      <h3 style="color:var(--blue);margin-bottom:10px">Send a Message</h3>
+
+      <form action="https://formspree.io/f/xzdpbjbj" method="POST">
+        <label>Name</label>
+        <input name="name" placeholder="Your name" required/>
+
+        <label>Email</label>
+        <input name="email" type="email" placeholder="you@example.com" required/>
+
+        <label>Message</label>
+        <textarea name="message" rows="6" placeholder="Type your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+   <footer class="site-footer">
+        <div class="footer-left"> <span class="availability"> <span class="dot"></span> Available for work </span> <span
+                class="copy"> © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved </span> <a
+                href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms of Use</a> </div>
+        <div class="footer-right"> <!-- OPTIONAL: your theme switcher -->
+            <div class="theme-switch" id="themeToggle"> <span class="thumb"></span> </div> <!-- Socials --> <a
+                href="https://www.linkedin.com/in/shumani-m-75b73a278/" class="social"><i
+                    class="fab fa-linkedin"></i></a> <a href="https://github.com/Explora222" class="social"><i
+                    class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+<script>
+/* MENU */
+menuBtn.onclick = ()=> menu.classList.toggle("show");
+
+/* THEME */
+document.getElementById("theme").onclick =
+  ()=> document.body.classList.toggle("light");
+
+/* CALENDAR */
+const monthEl=document.getElementById("month");
+const daysEl=document.getElementById("days");
+const timesEl=document.getElementById("times");
+let current=new Date();
+
+function renderCalendar(){
+  const year=current.getFullYear();
+  const month=current.getMonth();
+  const first=new Date(year,month,1).getDay();
+  const last=new Date(year,month+1,0).getDate();
+  monthEl.textContent=current.toLocaleString('default',
+    {month:'long',year:'numeric'});
+  daysEl.innerHTML="";
+  for(let i=0;i<first;i++){
+    const empty=document.createElement("div");
+    daysEl.appendChild(empty);
+  }
+  for(let d=1;d<=last;d++){
+    const day=document.createElement("div");
+    day.className="calendar-day";
+    day.textContent=d;
+    day.onclick=()=>selectDay(day);
+    daysEl.appendChild(day);
+  }
+}
+renderCalendar();
+
+prev.onclick=()=>{current.setMonth(current.getMonth()-1);renderCalendar()}
+next.onclick=()=>{current.setMonth(current.getMonth()+1);renderCalendar()}
+
+function selectDay(el){
+  document.querySelectorAll(".calendar-day")
+    .forEach(e=>e.classList.remove("active"));
+  el.classList.add("active");
+  renderTimes();
+}
+
+/* TIME SLOTS */
+const slots=["7:30am","8:00am","8:30am","9:00am","9:30am","10:00am",
+"10:30am","11:00am","11:30am","12:00pm","12:30pm","1:00pm",
+"2:00pm","2:30pm","3:00pm","3:30pm","4:00pm","4:30pm"];
+
+function renderTimes(){
+  timesEl.innerHTML="";
+  slots.forEach(t=>{
+    const div=document.createElement("div");
+    div.className="time-slot";
+    div.textContent=t;
+    div.onclick=()=>{
+      document.querySelectorAll(".time-slot")
+        .forEach(s=>s.classList.remove("active"));
+      div.classList.add("active");
+    };
+    timesEl.appendChild(div);
+  })
+}
+renderTimes();
+</script>
+
+
+</body>
+</html>
+
+
+

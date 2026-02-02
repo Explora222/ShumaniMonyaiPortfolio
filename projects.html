@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Shumani Monyai</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #030303;
+            --card: #0c0c0c;
+            --text: #fff;
+            --muted: #bfbfbf;
+            --border: rgba(255, 255, 255, .08);
+            --accent1: #ff3cac;
+            --accent2: #784ba0;
+            --accent3: #2b86c5;
+        }
+
+        .light {
+            --bg: #f2f2f2;
+            --card: #ffffff;
+            --text: #121212;
+            --muted: #555;
+            --border: rgba(0, 0, 0, .1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, Poppins;
+        }
+
+        /* ================= HEADER BAR ================= */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+       .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            /* adjust to your theme */
+        }
+
+        .logo img {
+            height: 42px;
+            /* adjust size */
+            width: auto;
+            display: block;
+        }
+        /* THEME BUTTON */
+        .theme {
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+        }
+
+        .theme i {
+            font-size: 1.1rem
+        }
+
+        /* ================= PAGE ================= */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px 90px;
+            position: relative;
+        }
+
+        /* BIG BACKGROUND WORD */
+        .big-word {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 7rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, .03);
+            letter-spacing: 4px;
+            pointer-events: none;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin: 120px 0 60px;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+        }
+
+        .header p {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+        }
+
+        /* PROJECT WRAPPER */
+        .project {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 20px;
+        }
+
+        /* TABLET FRAME */
+        .tablet {
+            background: linear-gradient(135deg, #ff3cac, #784ba0, #2b86c5);
+            padding: 14px;
+            border-radius: 24px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, .2);
+            animation: pulse 6s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                filter: brightness(.98);
+            }
+
+            to {
+                filter: brightness(1.2);
+            }
+        }
+
+        .tablet-inner {
+            background: var(--card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .tablet iframe {
+            width: 100%;
+            height: 360px;
+            border: none;
+        }
+
+        /* INFO */
+        .info h2 {
+            font-size: 1.6rem;
+        }
+
+        .info p {
+            color: var(--muted);
+            margin: 10px 0 15px;
+        }
+
+        /* TAGS */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags span {
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: .8rem;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            border-radius: 30px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* ================= FOOTER ================= */
+    .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin: 60px auto 10px;
+            color: #bfbfbf;
+            font-size: 0.9rem;
+            gap: 20px;
+        }
+
+        /* left side */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* availability pill */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .availability .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        /* copyright text */
+        .copy strong {
+            color: #fff;
+        }
+
+        /* links */
+        .site-footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #4a7dff;
+        }
+
+        /* right side */
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* socials */
+        .social {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+        }
+
+        .social:hover {
+            color: #4a7dff;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+            }
+        }
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:900px) {
+            .project {
+                grid-template-columns: 1fr;
+            }
+
+            .tablet iframe {
+                height: 300px;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .big-word {
+                font-size: 4rem;
+            }
+
+            .header h1 {
+                font-size: 2.1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tablet iframe {
+                height: 240px;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+       <div class="logo"> <a href="index.html"><img src="log.png" alt="Shumani Monyai Logo"></a> </div>
+
+        <button class="theme" onclick="document.body.classList.toggle('light')">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+    </div>
+
+
+    <div class="wrapper">
+
+        <div class="big-word">PROJECTS</div>
+
+        <header class="header">
+            <h1>Curated Work</h1>
+            <p>Modern experiences built for speed, beauty and usability</p>
+        </header>
+
+
+        <!-- ================= GRID ================= -->
+        <div class="grid">
+
+
+            <!-- REAL ESTATE -->
+            <div class="project">
+
+                <div class="tablet">
+                    <div class="tablet-inner">
+                        <iframe src="https://realestateproject.wasmer.app/"></iframe>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <h2>Real Estate</h2>
+                    <p>A dynamic web app for listing and exploring properties with secure login and advanced filters.
+                    </p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-server"></i> Node.js</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                    </div>
+
+                    <a class="btn" href="https://realestateproject.wasmer.app/" target="_blank">View Live</a>
+                </div>
+
+            </div>
+
+
+            <!-- COFFEE HOUSE -->
+            <div class="project">
+
+                <div class="tablet">
+                    <div class="tablet-inner">
+                        <iframe src="https://coffee.wasmer.app/"></iframe>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <h2>Coffee House</h2>
+                    <p>Hybrid React frontend powered by a headless WordPress CMS.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-brands fa-wordpress"></i> WordPress API</span>
+                        <span><i class="fa-solid fa-brush"></i> Styled Components</span>
+                    </div>
+
+                    <a class="btn" href="https://coffee.wasmer.app/" target="_blank">View Live</a>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD -->
+            <div class="project">
+
+                <div class="tablet">
+                    <div class="tablet-inner">
+                        <iframe src="https://luminapersonaldashboard.netlify.app/"></iframe>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <h2>Lumina Personal Dashboard</h2>
+                    <p>A modern personal dashboard with real-time data visualization and task management features.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-chart-line"></i> Data Visualization</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                    </div>
+
+                    <a class="btn" href="https://luminapersonaldashboard.netlify.app/" target="_blank">View Live</a>
+                </div>
+
+            </div>
+
+
+            <!-- WEATHER -->
+            <div class="project">
+
+                <div class="tablet">
+                    <div class="tablet-inner">
+                        <iframe src="https://explora222.github.io/Weather-Now/"></iframe>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <h2>Weather Now</h2>
+                    <p>Real-time weather application with live location tracking and detailed forecasts.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Geolocation API</span>
+                        <span><i class="fa-solid fa-cloud"></i> Weather API</span>
+                    </div>
+
+                    <a class="btn" href="https://explora222.github.io/Weather-Now/" target="_blank">View Live</a>
+                </div>
+
+            </div>
+
+
+
+
+            <!-- DENTAL CLINIC -->
+            <div class="project">
+
+                <div class="tablet">
+                    <div class="tablet-inner">
+                        <iframe src="https://dental-clinic-two-chi.vercel.app/"></iframe>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <h2>Dental Clinic</h2>
+                    <p>A professional dental clinic website with appointment scheduling and service information.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-tooth"></i> Web Design</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                    </div>
+
+                    <a class="btn" href="https://dental-clinic-two-chi.vercel.app/" target="_blank">View Live</a>
+                </div>
+
+            </div>
+
+
+            <!-- SIZZLING BRAAI -->
+            <div class="project">
+
+                <div class="tablet">
+                    <div class="tablet-inner">
+                        <iframe src="https://sizzlingbraai.netlify.app/"></iframe>
+                    </div>
+                </div>
+
+                <div class="info">
+                    <h2>Sizzling Braai</h2>
+                    <p>A vibrant braai restaurant website with menu showcase and online ordering capabilities.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                        <span><i class="fa-solid fa-fire"></i> Web Design</span>
+                    </div>
+
+                    <a class="btn" href="https://sizzlingbraai.netlify.app/" target="_blank">View Live</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+     <footer class="site-footer">
+         <span
+                class="copy"> © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved 
+           
+      
+    </footer>
+
+
+</body>
+
+</html>

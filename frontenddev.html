@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Frontend Development service by Shumani Monyai — building responsive, pixel-perfect web interfaces." />
+  <meta name="keywords" content="Frontend Development, Web Developer, UI Developer, HTML CSS JavaScript React" />
+  <meta name="author" content="Shumani Monyai" />
+
+  <title>Frontend Development | Shumani Monyai</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b0b0b;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    /* ---------- LIGHT MODE FIX ---------- */
+    body.light {
+      background: #ffffff;
+      color: #111
+    }
+
+    body.light header {
+      background: #ffffff;
+      border-color: #e6e6e6
+    }
+
+    body.light .nav ul li a {
+      color: #333
+    }
+
+    body.light .nav ul li a:hover {
+      color: #0044ff
+    }
+
+    body.light .badge {
+      background: rgba(0, 0, 0, .05);
+      border: 1px solid rgba(0, 0, 0, .08);
+      color: #0044ff;
+    }
+
+    body.light .page-hero p,
+    body.light .text p {
+      color: #555
+    }
+
+    body.light .section h3 {
+      color: #0044ff
+    }
+
+    body.light .feature,
+    body.light .step,
+    body.light .cta-box {
+      background: #fafafa;
+      border: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    body.light .feature p,
+    body.light .step p {
+      color: #555
+    }
+
+    body.light .stack span {
+      border: 1px solid rgba(0, 0, 0, .15);
+      color: #333;
+    }
+
+    body.light footer {
+      border-top: 1px solid rgba(0, 0, 0, .1);
+      color: #555;
+    }
+
+    /* mobile menu in light mode */
+    @media(max-width:700px) {
+      body.light .nav ul {
+        background: #ffffff;
+        border-left: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      background: #0b0b0b;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px
+    }
+
+    .nav ul li a {
+      font-size: .9rem;
+      color: #aaa
+    }
+
+    .nav ul li a:hover {
+      color: #0026ff
+    }
+
+    .theme-toggle {
+      margin-left: 15px;
+      color: #1100ff;
+      font-size: 1.3rem;
+      cursor: pointer
+    }
+
+    .menu-toggle {
+      display: none;
+      color: #1100ff;
+      font-size: 1.5rem
+    }
+
+    .page-hero {
+      max-width: 1100px;
+      margin: 140px auto 40px;
+      padding: 0 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .1);
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: .8rem;
+      color: #1900ff;
+      margin-bottom: 10px;
+    }
+
+    .page-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px
+    }
+
+    .page-hero p {
+      color: #aaa;
+      max-width: 680px
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section h3 {
+      color: #1900ff;
+      margin-bottom: 6px
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 16px
+    }
+
+    .text p {
+      color: #aaa;
+      margin-bottom: 12px;
+      line-height: 1.6
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .feature {
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .feature i {
+      font-size: 1.5rem;
+      color: #2f00ff;
+      margin-bottom: 8px
+    }
+
+    .feature p {
+      color: #aaa;
+      font-size: .9rem
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .step {
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      padding: 16px;
+      background: #0f0f0f;
+    }
+
+    .step h4 {
+      color: #2f00ff;
+      margin-bottom: 6px
+    }
+
+    .stack {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    .stack span {
+      border: 1px solid rgba(255, 255, 255, .15);
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: .8rem;
+    }
+
+    .cta-box {
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 24px;
+      padding: 28px;
+      background: #0f0f0f;
+      margin-top: 30px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #2600ff;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      color: #666;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      margin-top: 50px;
+    }
+
+
+
+    @media(max-width:900px) {
+      .features {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .process {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:700px) {
+      .nav ul {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background: #000;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        transition: .3s;
+      }
+
+      .nav ul.show {
+        right: 0
+      }
+
+      .menu-toggle {
+        display: block
+      }
+
+      .features,
+      .process {
+        grid-template-columns: 1fr
+      }
+
+      .page-hero h1 {
+        font-size: 2.2rem
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      /* adjust to your theme */
+    }
+
+    .logo img {
+      height: 42px;
+      /* adjust size */
+      width: auto;
+      display: block;
+    }
+
+    .theme-switch {
+      position: relative;
+      width: 70px;
+      height: 32px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      cursor: pointer;
+    }
+
+    /* icons */
+    .theme-switch i {
+      font-size: 14px;
+      color: #d4d4d4;
+      z-index: 2;
+    }
+
+    /* the moving highlight circle */
+    .theme-switch .thumb {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      transition: transform .25s ease;
+      left: 2px;
+    }
+
+    /* 🌙 When Dark Mode is Active */
+    .theme-switch.dark .thumb {
+      transform: translateX(36px);
+    }
+
+    /* little glow on active icon */
+    .theme-switch.dark .moon-icon,
+    .theme-switch:not(.dark) .sun-icon {
+      color: white;
+    }
+     .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin: 60px auto 10px;
+            color: #bfbfbf;
+            font-size: 0.9rem;
+            gap: 20px;
+        }
+
+        /* left side */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* availability pill */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .availability .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        /* copyright text */
+        .copy strong {
+            color: #fff;
+        }
+
+        /* links */
+        .site-footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #4a7dff;
+        }
+
+        /* right side */
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* socials */
+        .social {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+        }
+
+        .social:hover {
+            color: #4a7dff;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+            }
+        }
+           /* ================= LIGHT THEME FOOTER ================= */
+        body.light .site-footer {
+            background: #f7f8fc;
+            /* soft neutral panel */
+            border-top: 1px solid #e2e4ef;
+            /* subtle divider */
+            color: #3a3a3a;
+            /* readable grey */
+        }
+
+        /* darker text highlight */
+        body.light .copy strong {
+            color: #0f172a;
+        }
+
+        /* links */
+        body.light .site-footer a {
+            color: #1f3fd1;
+        }
+
+        body.light .site-footer a:hover {
+            color: #1026a8;
+        }
+
+        /* socials */
+        body.light .social {
+            color: #4a5568;
+        }
+
+        body.light .social:hover {
+            color: #1f3fd1;
+        }
+
+        /* availability pill */
+        body.light .availability {
+            background: #eef1ff;
+            border: 1px solid #d9dfff;
+        }
+
+        body.light .availability .dot {
+            background: #12b886;
+        }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <a href="index.html"><img src="log.png" alt="Shumani Monyai Logo"></a>
+
+      </div>
+
+      <a href="index.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      </a>
+
+      <div class="theme-switch" id="themeToggle">
+        <i class="fa-solid fa-sun sun-icon"></i>
+        <i class="fa-solid fa-moon moon-icon"></i>
+        <span class="thumb"></span>
+      </div>
+     
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="badge">Service — Frontend Development</div>
+
+    <h1>Frontend Development</h1>
+    <p>I design and build responsive, pixel-perfect, high-performance user interfaces using modern web technologies and
+      clean, maintainable code.</p>
+  </section>
+
+  <section class="section">
+    <h3>What I Do</h3>
+    <h2>Clean, Modern & User-Focused Interfaces</h2>
+
+    <div class="text">
+      <p>Your website is the first interaction people have with your brand — so it needs to feel fast, intuitive, and
+        visually consistent across every device.</p>
+      <p>I focus on building interfaces that are visually polished, accessible, and technically reliable — ensuring
+        great user experiences and smooth functionality.</p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-mobile"></i>
+        <h4>Responsive Layouts</h4>
+        <p>Seamless experiences across mobile, tablet, and desktop.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-layer-group"></i>
+        <h4>Pixel-Perfect UI</h4>
+        <p>Accurate implementation from Figma / UI designs.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-gauge-high"></i>
+        <h4>Performance Driven</h4>
+        <p>Optimized loading, assets & efficient code structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>My Workflow</h3>
+    <h2>A Structured & Collaborative Process</h2>
+
+    <div class="process">
+      <div class="step">
+        <h4>1. Discovery</h4>
+        <p>Understand your goals, users & requirements.</p>
+      </div>
+      <div class="step">
+        <h4>2. UI Development</h4>
+        <p>Translate designs into interactive components.</p>
+      </div>
+      <div class="step">
+        <h4>3. Testing</h4>
+        <p>Responsiveness, accessibility & bug-free delivery.</p>
+      </div>
+      <div class="step">
+        <h4>4. Launch & Support</h4>
+        <p>Deployment & ongoing improvements.</p>
+      </div>
+    </div>
+
+    <div class="stack">
+      <span>HTML5</span>
+      <span>CSS3</span>
+      <span>Tailwind / SCSS</span>
+      <span>JavaScript</span>
+      <span>React</span>
+      <span>Responsive Design</span>
+      <span>Git</span>
+    </div>
+
+    <div class="cta-box">
+      <h3>Need a modern, responsive frontend built for your website or web app?</h3>
+      <a href="index.html#contact" class="btn-primary">Let’s Work Together</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+
+        <div class="footer-left">
+            
+
+            <span class="copy">
+                © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved
+            </span>
+
+           
+        </div>
+
+        <div class="footer-right">
+            <!-- OPTIONAL: your theme switcher -->
+            <div class="theme-switch" id="themeToggle">
+
+                <span class="thumb"></span>
+            </div>
+
+            <!-- Socials -->
+            <a href="https://www.linkedin.com/in/shumani-m-75b73a278/" class="social"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Explora222" class="social"><i class="fab fa-github"></i></a>
+
+        </div>
+
+    </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('menu').classList.toggle('show'); }
+    document.getElementById('year').innerText = new Date().getFullYear();
+    document.getElementById("themeToggle").onclick = function () {
+      document.body.classList.toggle("light");
+    };
+
+    const cursor = document.getElementById("cursor");
+    document.addEventListener("mousemove", e => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+  </script>
+
+</body>
+
+</html>
