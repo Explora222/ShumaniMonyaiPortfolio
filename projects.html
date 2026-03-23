@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Shumani Monyai - Frontend & Fullstack Developer</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #030303;
+            --card: #0c0c0c;
+            --text: #fff;
+            --muted: #bfbfbf;
+            --border: rgba(255, 255, 255, .08);
+            --accent1: #ff3cac;
+            --accent2: #784ba0;
+            --accent3: #2b86c5;
+        }
+
+        .light {
+            --bg: #f2f2f2;
+            --card: #ffffff;
+            --text: #121212;
+            --muted: #555;
+            --border: rgba(0, 0, 0, .1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, Poppins;
+        }
+
+        /* ================= HEADER BAR ================= */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            /* adjust to your theme */
+        }
+
+        .logo img {
+            height: 42px;
+            /* adjust size */
+            width: auto;
+            display: block;
+        }
+
+        /* THEME BUTTON */
+        .theme {
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+        }
+
+        .theme i {
+            font-size: 1.1rem
+        }
+
+        /* ================= PAGE ================= */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px 90px;
+            position: relative;
+        }
+
+        /* BIG BACKGROUND WORD */
+        .big-word {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 7rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, .03);
+            letter-spacing: 4px;
+            pointer-events: none;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin: 120px 0 60px;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+        }
+
+        .header p {
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 60px;
+        }
+
+        /* PROJECT CARD */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* IPAD MOCKUP CONTAINER */
+        .ipad-mockup {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 4/3;
+            border-radius: 28px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 18px;
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.4),
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+        }
+
+        .ipad-mockup:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 35px 100px rgba(0, 0, 0, 0.5),
+                0 15px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15),
+                0 0 60px rgba(120, 75, 160, 0.3);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* IPAD BEZEL */
+        .ipad-bezel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* IPAD SCREEN */
+        .ipad-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .ipad-screen iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* HOVER OVERLAY */
+        .ipad-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            border-radius: 14px;
+        }
+
+        .ipad-mockup:hover .ipad-overlay {
+            opacity: 1;
+        }
+
+        /* OVERLAY CONTENT ZOOM EFFECT */
+        .ipad-mockup:hover .ipad-screen {
+            transform: scale(1.08);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* OVERLAY BUTTONS */
+        .overlay-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .overlay-btn-primary {
+            background: linear-gradient(135deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(120, 75, 160, 0.4);
+        }
+
+        .overlay-btn-primary:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(120, 75, 160, 0.6);
+        }
+
+        /* IPAD HOME BAR */
+        .ipad-home-bar {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            z-index: 10;
+        }
+
+        /* INFO SECTION */
+        .project-info {
+            text-align: center;
+            max-width: 420px;
+        }
+
+        .project-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff3cac, #784ba0, #2b86c5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-info p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* TAGS */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tags span {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--muted);
+            transition: all 0.3s ease;
+        }
+
+        .tags span:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text);
+        }
+
+        /* VIEW LIVE BUTTON */
+        .btn-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-live:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        /* ================= FOOTER ================= */
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            max-width: 1200px;
+            margin: 60px auto 10px;
+            color: #bfbfbf;
+            font-size: 0.9rem;
+            gap: 20px;
+        }
+
+        /* left side */
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* availability pill */
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .availability .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        /* copyright text */
+        .copy strong {
+            color: #fff;
+        }
+
+        /* links */
+        .site-footer a {
+            color: #dcdcdc;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            color: #4a7dff;
+        }
+
+        /* right side */
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* socials */
+        .social {
+            color: #dcdcdc;
+            font-size: 1.1rem;
+        }
+
+        .social:hover {
+            color: #4a7dff;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                margin-top: 10px;
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:900px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .ipad-mockup {
+                max-width: 420px;
+            }
+        }
+
+        @media(max-width:600px) {
+            .big-word {
+                font-size: 4rem;
+            }
+
+            .header h1 {
+                font-size: 2.1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .ipad-mockup {
+                max-width: 100%;
+                padding: 14px;
+                border-radius: 22px;
+            }
+
+            .ipad-bezel {
+                border-radius: 14px;
+            }
+
+            .ipad-home-bar {
+                width: 100px;
+                height: 4px;
+            }
+
+            .project-info h2 {
+                font-size: 1.3rem;
+            }
+
+            .project-info p {
+                font-size: 0.9rem;
+            }
+
+            .overlay-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media(max-width:400px) {
+            .ipad-mockup {
+                padding: 10px;
+                border-radius: 18px;
+            }
+
+            .grid {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <div class="topbar">
+        <div class="logo"> <a href="index.html"><img src="log.png" alt="Shumani Monyai Logo"></a> </div>
+
+        <button class="theme" onclick="document.body.classList.toggle('light')">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+    </div>
+
+
+    <div class="wrapper">
+
+        <div class="big-word">PROJECTS</div>
+
+        <header class="header">
+            <h1>Curated Work</h1>
+            <p>Full-stack applications and frontend experiences built for speed, beauty and usability</p>
+        </header>
+
+
+        <!-- ================= GRID ================= -->
+        <div class="grid">
+
+
+            <!-- REAL ESTATE -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://realestateproject.wasmer.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://realestateproject.wasmer.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Real Estate Platform</h2>
+                    <p>A full-stack web app for listing and exploring properties with secure authentication, database
+                        integration, and advanced filtering capabilities.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-server"></i> Node.js</span>
+                        <span><i class="fa-solid fa-database"></i> Database</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                    </div>
+
+                    <a class="btn-live" href="https://realestateproject.wasmer.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- COFFEE HOUSE -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://coffee.wasmer.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://coffee.wasmer.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Coffee House</h2>
+                    <p>Full-stack hybrid React frontend powered by a headless WordPress CMS with REST API integration.
+                    </p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-brands fa-wordpress"></i> WordPress API</span>
+                        <span><i class="fa-solid fa-brush"></i> Styled Components</span>
+                    </div>
+
+                    <a class="btn-live" href="https://coffee.wasmer.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://luminapersonaldashboard.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary"
+                                href="https://luminapersonaldashboard.netlify.app/" target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Lumina Personal Dashboard</h2>
+                    <p>A comprehensive full-stack personal dashboard with real-time data visualization, task management,
+                        and backend API integration.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-chart-line"></i> Data Visualization</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                    </div>
+
+                    <a class="btn-live" href="https://luminapersonaldashboard.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- WEATHER -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://explora222.github.io/Weather-Now/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://explora222.github.io/Weather-Now/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Weather Now</h2>
+                    <p>Full-featured weather application with real-time location tracking, third-party API integration,
+                        and detailed forecasts.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Geolocation API</span>
+                        <span><i class="fa-solid fa-cloud"></i> Weather API</span>
+                    </div>
+
+                    <a class="btn-live" href="https://explora222.github.io/Weather-Now/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+
+
+            <!-- DENTAL CLINIC -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://dental-clinic-two-chi.vercel.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://dental-clinic-two-chi.vercel.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Dental Clinic</h2>
+                    <p>A professional dental clinic website with appointment scheduling, form handling, and service
+                        information management.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-tooth"></i> Web Design</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                    </div>
+
+                    <a class="btn-live" href="https://dental-clinic-two-chi.vercel.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- SIZZLING BRAAI -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://sizzlingbraai.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://sizzlingbraai.netlify.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Sizzling Braai</h2>
+                    <p>A vibrant braai restaurant website with menu showcase, online ordering system, and customer
+                        engagement features.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Tailwind</span>
+                        <span><i class="fa-solid fa-fire"></i> Web Design</span>
+                    </div>
+
+                    <a class="btn-live" href="https://sizzlingbraai.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- LUXE GOLD SHADES -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://luxegoldshades.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://luxegoldshades.netlify.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Luxe Gold Shades</h2>
+                    <p>A premium e-commerce eyewear showcase with product catalog, shopping cart functionality, and
+                        elegant luxury UI design.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-solid fa-glasses"></i> E-commerce</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Web Design</span>
+                        <span><i class="fa-solid fa-gem"></i> Luxury UI</span>
+                    </div>
+
+                    <a class="btn-live" href="https://luxegoldshades.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- LUXE SAND TON -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://luxesandton.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://luxesandton.netlify.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Luxe Sandton</h2>
+                    <p>A sophisticated e-commerce platform showcasing premium products with modern design, cart
+                        functionality, and seamless user experience.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-solid fa-store"></i> E-commerce</span>
+                        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Web Design</span>
+                        <span><i class="fa-solid fa-layer-group"></i> Modern UI</span>
+                    </div>
+
+                    <a class="btn-live" href="https://luxesandton.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- CRISPY BITE SOUTH -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://crispybitesouth.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://crispybitesouth.netlify.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Crispy Bite South</h2>
+                    <p>Modern restaurant website with responsive design, menu showcase, and seamless user experience
+                        optimized for customer engagement and online presence.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-code"></i> TypeScript</span>
+                        <span><i class="fa-solid fa-fire"></i> Firebase</span>
+                    </div>
+
+                    <a class="btn-live" href="https://crispybitesouth.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- SUGAR PEOPLE -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://explora222.github.io/Sugar-People/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://explora222.github.io/Sugar-People/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Sugar People</h2>
+                    <p>Creative frontend showcase demonstrating advanced UI/UX design skills, interactive animations,
+                        and polished visual storytelling for brand engagement.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span><i class="fa-solid fa-palette"></i> UI/UX Design</span>
+                    </div>
+
+                    <a class="btn-live" href="https://explora222.github.io/Sugar-People/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- HEITA MZANSI -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://heitamzansi.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://heitamzansi.netlify.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Heita Mzansi</h2>
+                    <p>A South African streaming platform offering local and international content with seamless playback, intuitive navigation, and a modern entertainment experience.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-play"></i> Streaming</span>
+                        <span><i class="fa-solid fa-film"></i> Entertainment</span>
+                    </div>
+
+                    <a class="btn-live" href="https://heitamzansi.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- YANKYS -->
+            <div class="project-card">
+
+                <div class="ipad-mockup">
+                    <div class="ipad-bezel">
+                        <div class="ipad-screen">
+                            <iframe src="https://yankys.netlify.app/"></iframe>
+                        </div>
+                        <div class="ipad-overlay">
+                            <a class="overlay-btn overlay-btn-primary" href="https://yankys.netlify.app/"
+                                target="_blank">
+                                <i class="fa-solid fa-external-link-alt"></i>
+                                View Live
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ipad-home-bar"></div>
+                </div>
+
+                <div class="project-info">
+                    <h2>Yankys</h2>
+                    <p>A visually stunning restaurant platform with cart functionality, delivery ordering, and seamless checkout—bringing quality dining to the comfort of home.</p>
+
+                    <div class="tags">
+                        <span><i class="fa-brands fa-react"></i> React</span>
+                        <span><i class="fa-solid fa-cart-shopping"></i> E-commerce</span>
+                        <span><i class="fa-solid fa-motorcycle"></i> Delivery</span>
+                    </div>
+
+                    <a class="btn-live" href="https://yankys.netlify.app/" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </a>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+        <span class="copy"> © <span id="year"></span> <strong>Shumani Monyai</strong>. All rights reserved
+
+
+    </footer>
+
+
+</body>
+
+</html>
